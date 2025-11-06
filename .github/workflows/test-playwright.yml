@@ -1,0 +1,31 @@
+name: Playwright Setup
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  setup:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout del código
+        uses: actions/checkout@v4
+
+      - name: Configurar Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Instalar dependencias del proyecto
+        run: npm install
+
+      - name: Instalar Playwright
+        run: npx playwright install --with-deps
+
+      - name: Confirmar instalación
+        run: npx playwright --version
