@@ -1,0 +1,17 @@
+import { createRouter, createWebHistory } from 'vue-router';
+import LoginView from './views/LoginView.vue';
+import ForgotPasswordView from './views/ForgotPasswordView.vue';
+import DashboardView from './views/DashboardView.vue';
+
+const routes = [
+  { path: '/', name: 'Login', component: LoginView },
+  { path: '/forgot-password', name: 'ForgotPassword', component: ForgotPasswordView },
+  { path: '/dashboard', name: 'Dashboard', component: DashboardView }
+];
+
+const router = createRouter({
+  history: createWebHistory(),
+  routes
+});
+
+export default router;
